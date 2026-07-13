@@ -30,14 +30,6 @@ export default function Home() {
             >
               View Projects
             </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              nativeButton={false}
-              render={<Link href="/Resume.pdf" download target="_blank" />}
-            >
-              Download Resume
-            </Button>
           </div>
         </div>
 
