@@ -3,11 +3,22 @@ export interface ExperienceEntry {
   company: string;
   location: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
   highlights: string[];
 }
 
 export const experience: ExperienceEntry[] = [
+  {
+    role: "Full-Stack Software Engineering Apprentice",
+    company: "Flatiron School",
+    location: "Remote",
+    startDate: "2026-04",
+    highlights: [
+      "Apprenticing in full-stack development with a focus on AI-assisted engineering workflows.",
+      "Serve as Team Lead for a 3-person team, owning repo setup and branching strategy.",
+      "Drive architecture decisions and manage task creation and sprint planning.",
+    ],
+  },
   {
     role: "Web Developer / Front-end Team Lead",
     company: "BridgeGate / Vorro",

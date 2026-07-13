@@ -20,8 +20,26 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://huntercogan.com"),
   title: "Hunter Cogan",
   description: "A portfolio website to share my projects and experience.",
+  keywords: [
+    "Hunter Cogan",
+    "front-end developer",
+    "full-stack developer",
+    "React developer",
+    "portfolio",
+  ],
+  openGraph: {
+    title: "Hunter Cogan",
+    description: "A portfolio website to share my projects and experience.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hunter Cogan",
+    description: "A portfolio website to share my projects and experience.",
+  },
 };
 
 const themeInitScript = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
