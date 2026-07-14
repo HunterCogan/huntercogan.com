@@ -1,10 +1,29 @@
+import { XIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { site } from "@/data/site";
 import { skills } from "@/data/skills";
+import { projects } from "@/data/projects";
+
+const featuredProject = projects.find((project) => project.title === "MixGit");
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -52,10 +71,38 @@ export default function Home() {
           </div>
         </div>
 
-        <Avatar className="h-36 w-36 shrink-0 sm:h-44 sm:w-44">
-          <AvatarImage src="/profilePic.JPEG" alt={`Portrait of ${site.name}`} />
-          <AvatarFallback className="text-2xl">HC</AvatarFallback>
-        </Avatar>
+        <Dialog>
+          <DialogTrigger className="cursor-pointer rounded-full outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+            <Avatar className="h-36 w-36 shrink-0 sm:h-44 sm:w-44">
+              <AvatarImage
+                src="/profilePic.JPEG"
+                alt={`Portrait of ${site.name}`}
+              />
+              <AvatarFallback className="text-2xl">HC</AvatarFallback>
+            </Avatar>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-lg" showCloseButton={false}>
+            <DialogTitle className="sr-only">
+              Portrait of {site.name}
+            </DialogTitle>
+            <div className="relative">
+              <Image
+                src="/profilePic.JPEG"
+                alt={`Portrait of ${site.name}`}
+                width={800}
+                height={800}
+                className="h-auto w-full rounded-lg object-cover"
+              />
+              <DialogClose
+                render={<Button variant="outline" size="icon" />}
+                className="absolute top-3 right-3 rounded-full bg-background/90 shadow-sm backdrop-blur-sm"
+              >
+                <XIcon className="h-4 w-4" />
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            </div>
+          </DialogContent>
+        </Dialog>
       </section>
 
       <Separator />
@@ -72,6 +119,68 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {featuredProject && (
+        <>
+          <Separator />
+
+          <section className="py-12">
+            <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+              Featured Project
+            </h2>
+            <Card className="mt-6">
+              <CardHeader>
+                <CardTitle className="text-lg">
+                  {featuredProject.title}
+                </CardTitle>
+                <CardDescription>{featuredProject.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {featuredProject.tags.map((tag) => (
+                    <Badge key={tag} variant="outline">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {featuredProject.liveUrl && (
+                    <Button
+                      size="sm"
+                      nativeButton={false}
+                      render={
+                        <Link
+                          href={featuredProject.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        />
+                      }
+                    >
+                      Live Site
+                    </Button>
+                  )}
+                  {featuredProject.repoUrl && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      nativeButton={false}
+                      render={
+                        <Link
+                          href={featuredProject.repoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        />
+                      }
+                    >
+                      GitHub
+                    </Button>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+        </>
+      )}
 
       <Separator />
 
