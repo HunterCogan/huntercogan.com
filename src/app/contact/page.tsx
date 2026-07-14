@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Contact | Hunter Cogan",
+  description:
+    "Get in touch with Hunter Cogan by email, LinkedIn, or GitHub, or download his resume.",
+};
 
 export default function ContactPage() {
   return (

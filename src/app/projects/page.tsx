@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { projects, type ProjectEntry } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Projects | Hunter Cogan",
+  description:
+    "A selection of projects Hunter Cogan has built and worked on, from client work to personal projects like MixGit.",
+};
 
 function formatPeriod(project: ProjectEntry) {
   if (!project.startDate) {

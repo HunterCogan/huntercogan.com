@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -7,6 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { experience } from "@/data/experience";
+
+export const metadata: Metadata = {
+  title: "Experience | Hunter Cogan",
+  description:
+    "Hunter Cogan's professional experience, including front-end and full-stack development roles, healthcare legacy system conversions, and an AI-focused apprenticeship.",
+};
 
 function formatDate(value: string) {
   const [year, month] = value.split("-").map(Number);

@@ -6,9 +6,28 @@ import { Separator } from "@/components/ui/separator";
 import { site } from "@/data/site";
 import { skills } from "@/data/skills";
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.title,
+  url: "https://huntercogan.com",
+  email: site.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.location,
+  },
+  sameAs: site.socials.map((social) => social.href),
+};
+
 export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+
       <section className="flex flex-col-reverse items-start gap-10 py-20 sm:flex-row sm:items-center sm:justify-between sm:py-28">
         <div className="flex flex-col gap-6">
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
