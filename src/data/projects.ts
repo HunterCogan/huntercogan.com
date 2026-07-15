@@ -26,6 +26,22 @@ export const projects: ProjectEntry[] = [
     repoUrl: "https://github.com/HunterCogan/mixgit",
   },
   {
+  title: "AI Interview Prep",
+  description:
+    "A mock interview practice tool that generates interview questions based on your role and experience level, then scores your answers using Claude. You can sign in with email or Google/GitHub to save your history and track your scores over time, or just practice without an account. It also supports answering out loud with your microphone instead of typing.",
+  tags: [
+    "React",
+    "TypeScript",
+    "FastAPI",
+    "Python",
+    "Claude API",
+    "Supabase",
+    "Tailwind CSS",
+  ],
+  liveUrl: "https://ai-interview-prep-ruby-zeta.vercel.app/",
+  repoUrl: "https://github.com/HunterCogan/ai-interview-prep",
+},
+  {
     title: "Legacy Healthcare App — Front-End Rebuild",
     description:
       "Rebuilt the front end for a component of a legacy Java healthcare application into a modern, responsive web interface. A private, client-owned system behind authentication, no public demo available.",
