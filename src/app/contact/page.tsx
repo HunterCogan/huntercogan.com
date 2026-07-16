@@ -46,7 +46,7 @@ export default function ContactPage() {
             <div className="flex flex-wrap gap-3 pt-2">
               <Button
                 nativeButton={false}
-                render={<Link href="/Resume.pdf" download target="_blank" />}
+                render={<Link href="/Hunter_Cogan_Resume.pdf" download target="_blank" />}
               >
                 Download Resume
               </Button>
